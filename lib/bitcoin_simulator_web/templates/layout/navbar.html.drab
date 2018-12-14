@@ -1,0 +1,16 @@
+
+  <div class="container-fluid">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Dashboard</h1> 
+            <div class="nav-button">
+      <%= if @simulation_started? do %>
+        <button type="button" class="btn btn-danger btn-lg" drab-click="BitcoinSimulatorWeb.NavbarCommander.toggle_simulation"> <i class="fas fa-stop"></i>&nbsp;&nbsp;Terminate Simulation</button>
+      <% else %>
+        <button type="button" class="btn btn-success btn-lg" drab-click="BitcoinSimulatorWeb.NavbarCommander.toggle_simulation"><i class="fas fa-play"></i> &nbsp;&nbsp;Start Simulation</button>
+      <% end %>
+    </div>
+          </div>
+    
+    
+  </div>
+

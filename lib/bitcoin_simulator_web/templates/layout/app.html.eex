@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+    <title>Bitcoin Simulator</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
+    <link href="https://getbootstrap.com/docs/4.0/examples/dashboard/dashboard.css" rel="stylesheet">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <style>
+        .footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   padding:5px;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: center;
+}
+    </style>
+  </head>
+  <body>
+    <main role="main">
+  
+ <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+     
+      <a class="navbar-brand  col-md-12 " href="#">  <img src="http://shopforclipart.com/images/barbie-logo/24.jpg" height=40 width=40/>&nbsp;&nbsp;&nbsp;&nbsp;Bitcoin Simulator</a>
+      
+    </nav>
+    <br>
+    <br>
+  <div id="content" style="margin-top:50px;" class="active">
+
+    <%= render(BitcoinSimulatorWeb.LayoutView, "navbar.html", assigns |> Map.merge(%{simulation_started?: simulation_started?(), request_path: @conn.request_path})) %>
+    <p class="alert alert-primary" role="alert"><%= get_flash(@conn, :info) %></p>
+    <p class="alert alert-warning" role="alert"><%= get_flash(@conn, :warning) %></p>
+    <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+    <%= render(@view_module, @view_template, assigns) %>
+  </div>
+</main>
+    <div class="footer">
+  <p>Made with <span style="color:red"><i class="fas fa-heart"></i></span> by Sidharth Shridhar(2818-3997), Mrinalini Singh Thakur(9421-1951)</p>
+</div>
+    
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <!-- ChartJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+
+    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+    
+    <%= Drab.Client.run(@conn) %>
+  </body>
+</html>
